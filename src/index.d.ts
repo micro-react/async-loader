@@ -1,0 +1,2 @@
+
+declare module 'async-loader';

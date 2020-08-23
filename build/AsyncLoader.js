@@ -20,12 +20,12 @@ const AsyncLoader = (_a) => {
     const [asyncApp, setAsyncApp] = useState(null);
     useEffect(() => {
         fetchComponentData({ appName, cdnPath, basePath }).then(AsyncApp => {
-            setAsyncApp(<AsyncApp {...rest}/>);
+            setAsyncApp(React.createElement(AsyncApp, Object.assign({}, rest)));
         });
     }, [appName]); // only appName change ??:  components stored by name
     // TODO: Loading beautify
     if (asyncApp === null)
-        return <h1>loading...</h1>;
+        return React.createElement("h1", null, "loading...");
     return asyncApp;
 };
 export default AsyncLoader;

@@ -6,7 +6,7 @@
   "author": "iWuzhi <2461358597@qq.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc"
+    "build": "rm -rf ./build && tsc"
   },
   "devDependencies": {
     "typescript": "^4.0.2"
