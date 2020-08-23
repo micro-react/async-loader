@@ -35,7 +35,6 @@ const fetchComponentData = async ({
   if (components[appName]) return Promise.resolve(components[appName].default);
   if (loading_list[appName]) return Promise.resolve(loading_list[appName]);
   const ps = new Promise((resolve, reject) => {
-    loading_list[appName] = ps;
     const scriptTag = document.createElement('script');
     let srcURL = cdnPath;
     /**
@@ -58,6 +57,7 @@ const fetchComponentData = async ({
       delete loading_list[appName];
     }
   });
+  loading_list[appName] = ps;
   return ps;
 }
 

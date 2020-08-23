@@ -2,11 +2,20 @@
   "name": "async-loader",
   "version": "1.0.0",
   "main": "build/index.js",
+  "types": "./types",
+  "files": [
+    "build",
+    "types",
+    "*.json"
+  ],
   "repository": "https://github.com/micro-react/async-loader.git",
   "author": "iWuzhi <2461358597@qq.com>",
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf ./build && tsc"
+    "build": "rm -rf ./build && tsc",
+    "local:copy:build": "rm -rf ../app-entry/node_modules/async-loader/build && cp -r ./build ../app-entry/node_modules/async-loader/",
+    "local:copy:types": "rm -rf ../app-entry/node_modules/async-loader/types && cp -r ./types ../app-entry/node_modules/async-loader/",
+    "build:local": "yarn build && yarn local:copy:build && yarn local:copy:types"
   },
   "devDependencies": {
     "typescript": "^4.0.2"

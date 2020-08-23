@@ -19,7 +19,6 @@ const fetchComponentData = ({ appName, cdnPath, basePath }) => __awaiter(void 0,
     if (loading_list[appName])
         return Promise.resolve(loading_list[appName]);
     const ps = new Promise((resolve, reject) => {
-        loading_list[appName] = ps;
         const scriptTag = document.createElement('script');
         let srcURL = cdnPath;
         /**
@@ -43,6 +42,7 @@ const fetchComponentData = ({ appName, cdnPath, basePath }) => __awaiter(void 0,
             delete loading_list[appName];
         };
     });
+    loading_list[appName] = ps;
     return ps;
 });
 export default fetchComponentData;
